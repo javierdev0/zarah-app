@@ -1,12 +1,12 @@
 import { podcastsServiceMockFalse, podcastsServiceMockTrue } from '../__mocks__/podcast.service.mock'
-import { getPodcasts } from '../podcast.service'
+import { getPodcastsFromAPI } from '../podcast.service'
 
 describe('Podcasts service', () => {
   it('should get podcasts from api (mock true)', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: () => Promise.resolve({ feed: { entry: podcastsServiceMockTrue } })
     })
-    const podcasts = await getPodcasts()
+    const podcasts = await getPodcastsFromAPI()
     expect(podcasts).toEqual(podcastsServiceMockTrue)
   })
 
@@ -14,7 +14,7 @@ describe('Podcasts service', () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: () => Promise.resolve({ feed: { entry: podcastsServiceMockFalse } })
     })
-    const podcasts = await getPodcasts()
+    const podcasts = await getPodcastsFromAPI()
     expect(podcasts).not.toEqual(podcastsServiceMockTrue)
   })
 })

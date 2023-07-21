@@ -1,7 +1,7 @@
 import { API_PODCASTS } from '../constants/api.constants'
 import { Podcast } from '../types/podcast.type'
 
-export const getPodcasts = async (): Promise<Podcast[]> => {
+export const getPodcastsFromAPI = async (): Promise<Podcast[]> => {
   try {
     const response = await fetch(API_PODCASTS)
     const json = await response.json()
