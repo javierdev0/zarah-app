@@ -2,7 +2,7 @@ import { InputHTMLAttributes } from 'react'
 
 export default function InputSearch(props: InputHTMLAttributes<HTMLInputElement>) {
   return (
-    <label>
+    <label className='w-80'>
       <input
         {...props}
         type='search'
