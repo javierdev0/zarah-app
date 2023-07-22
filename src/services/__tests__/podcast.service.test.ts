@@ -1,7 +1,7 @@
 import { podcastsServiceMockFalse, podcastsServiceMockTrue } from '../__mocks__/podcast.service.mock'
 import { getPodcastsFromAPI } from '../podcast.service'
 
-describe('Podcasts service', () => {
+describe('Service: getPodcasts', () => {
   it('should get podcasts from api (mock true)', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: () => Promise.resolve({ feed: { entry: podcastsServiceMockTrue } })
