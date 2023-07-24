@@ -5,12 +5,12 @@ describe('Function: timeExpired', () => {
   const timeActive = Date.now() + 1000
 
   it('should return true if time is expired', () => {
-    const isExpired = isTimeExpired(timeExpired)
+    const isExpired = isTimeExpired({ time: timeExpired })
     expect(isExpired).toBe(true)
   })
 
   it('should return false if time is not expired', () => {
-    const isExpired = isTimeExpired(timeActive)
+    const isExpired = isTimeExpired({ time: timeActive })
     expect(isExpired).toBe(false)
   })
 })
