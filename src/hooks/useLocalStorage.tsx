@@ -13,7 +13,7 @@ function useLocalStorage<T>(key: string, initialValue: T) {
 
     if (storedValue) {
       const parsedValue = JSON.parse(storedValue) as LocalStorageValue<T>
-      const isExpired = isTimeExpired(parsedValue.expiration)
+      const isExpired = isTimeExpired({ time: parsedValue.expiration })
       if (isExpired) {
         localStorage.removeItem(key)
         return { value: initialValue, expiration: 0 }
