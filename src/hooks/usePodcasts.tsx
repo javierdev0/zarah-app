@@ -6,14 +6,17 @@ import { isTimeExpired } from '../utils/timeExpired.utils'
 
 const usePodcasts = () => {
   const [podcasts, setPodcasts] = useState<Podcast[]>([])
+  const [loading, setLoading] = useState(false)
   const { valueStored, setLocalStorage, expiration } = useLocalStorage<Podcast[]>('podcasts', [])
 
   const getPodcasts = async () => {
-    const isExpired = isTimeExpired(expiration)
+    const isExpired = isTimeExpired({ time: expiration })
     if (isExpired) {
+      setLoading(true)
       const response = await getPodcastsFromAPI()
       setPodcasts(response)
       setLocalStorage(response)
+      setLoading(false)
       return
     }
 
@@ -22,9 +25,9 @@ const usePodcasts = () => {
 
   useEffect(() => {
     getPodcasts()
-  }, [])
+  }, [valueStored])
 
-  return { podcasts }
+  return { podcasts, isLoading: loading }
 }
 
 export default usePodcasts
