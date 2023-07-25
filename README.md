@@ -1,4 +1,4 @@
-# Podcaster APP - Sisu
+# Podcaster APP - Zarah APP
 
 Esta es una aplicación web que te permite escuchar y descubrir tus podcasts favoritos de iTunes. Puedes buscar por nombre de podcast o de autor y explorar una amplia variedad de episodios disponibles.
 
