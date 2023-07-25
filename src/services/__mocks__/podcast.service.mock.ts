@@ -31,32 +31,6 @@ export const podcastsServiceMockTrue: Podcast[] = [
     summary: {
       label: 'Tune into Joe Budden and his friends. Follow along the crazy adventures of these very random friends.'
     },
-    'im:price': {
-      label: 'Get',
-      attributes: {
-        amount: '0',
-        currency: 'USD'
-      }
-    },
-    'im:contentType': {
-      attributes: {
-        term: 'Podcast',
-        label: 'Podcast'
-      }
-    },
-    rights: {
-      label: '© All rights reserved'
-    },
-    title: {
-      label: 'The Joe Budden Podcast - The Joe Budden Network'
-    },
-    link: {
-      attributes: {
-        rel: 'alternate',
-        type: 'text/html',
-        href: 'https://podcasts.apple.com/us/podcast/the-joe-budden-podcast/id1535809341?uo=2'
-      }
-    },
     id: {
       label: 'https://podcasts.apple.com/us/podcast/the-joe-budden-podcast/id1535809341?uo=2',
       attributes: {
@@ -67,20 +41,6 @@ export const podcastsServiceMockTrue: Podcast[] = [
       label: 'The Joe Budden Network',
       attributes: {
         href: 'https://podcasts.apple.com/us/artist/the-joe-budden-network/1535844019?uo=2'
-      }
-    },
-    category: {
-      attributes: {
-        'im:id': '1310',
-        term: 'Music',
-        scheme: 'https://podcasts.apple.com/us/genre/podcasts-music/id1310?uo=2',
-        label: 'Music'
-      }
-    },
-    'im:releaseDate': {
-      label: '2023-07-19T00:00:00-07:00',
-      attributes: {
-        label: 'July 19, 2023'
       }
     }
   }
