@@ -1,27 +1,29 @@
-# React + TypeScript + Vite
+# Podcaster APP - Sisu
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta es una aplicación web que te permite escuchar y descubrir tus podcasts favoritos de iTunes. Puedes buscar por nombre de podcast, filtrar por categoría y explorar una amplia variedad de episodios disponibles.
 
-Currently, two official plugins are available:
+## Instrucciones de ejecución
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Modo de desarrollo
 
-## Expanding the ESLint configuration
+1. Asegúrate de tener Node.js y npm instalados en tu sistema.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. Abre una terminal en la carpeta raíz del proyecto.
 
-- Configure the top-level `parserOptions` property like this:
+3. Instala las dependencias del proyecto ejecutando el siguiente comando: `npm install`
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+4. Inicia la aplicación en modo de desarrollo con el siguiente comando: `npm run dev`
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+5. La aplicación estará disponible en http://localhost:3000. Abre tu navegador y navega a esa URL para ver la aplicación en modo de desarrollo.
+
+### Modo de producción
+
+1. Asegúrate de tener Node.js y npm instalados en tu sistema.
+
+2. Abre una terminal en la carpeta raíz del proyecto.
+
+3. Instala las dependencias del proyecto ejecutando el siguiente comando: `npm install`
+
+4. Construye la aplicación para producción con el siguiente comando: `npm run build`
+
+5. Una vez que la construcción haya terminado, desde la carpeta dist sirve la aplicación con un servidor HTTP de tu elección. Yo utilicé live-server, pero puedes utilizar cualquier otro.
