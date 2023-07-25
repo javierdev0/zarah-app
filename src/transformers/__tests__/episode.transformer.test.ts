@@ -17,8 +17,6 @@ describe('Transformer: transformEpisode', () => {
 
   it('should return transformed episodes', () => {
     const transformedEpisodes = episodeTransformer.transformEpisode({ episodes: MockEpisodeFormTransform })
-    console.log(transformedEpisodes)
-
     expect(transformedEpisodes).toEqual(MockEpisodeTransformed)
   })
 
