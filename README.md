@@ -14,7 +14,7 @@ Esta es una aplicación web que te permite escuchar y descubrir tus podcasts fav
 
 4. Inicia la aplicación en modo de desarrollo con el siguiente comando: `npm run dev`
 
-5. La aplicación estará disponible en http://localhost:3000. Abre tu navegador y navega a esa URL para ver la aplicación en modo de desarrollo.
+5. Abre tu navegador y navega a esa URL para ver la aplicación en modo de desarrollo.
 
 ### Modo de producción
 
@@ -26,4 +26,4 @@ Esta es una aplicación web que te permite escuchar y descubrir tus podcasts fav
 
 4. Construye la aplicación para producción con el siguiente comando: `npm run build`
 
-5. Una vez que la construcción haya terminado, desde la carpeta dist sirve la aplicación con un servidor HTTP de tu elección. Yo utilicé live-server, pero puedes utilizar cualquier otro.
+5. Una vez que la construcción haya terminado, desde la carpeta dist sirve la aplicación con live-server con el siguiente comando: `live-server --entry-file=index.html`
