@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path={ROUTES.HOME} element={<MainLayout />}>
           <Route
-            path={`/${ROUTES.HOME}`}
+            path={`${ROUTES.HOME}`}
             element={
               <Suspense fallback={<LoaderSuspense />}>
                 <Home />
