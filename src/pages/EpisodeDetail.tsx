@@ -8,6 +8,7 @@ export default function EpisodeDetail() {
   const [audioIsLoaded, setAudioIsLoaded] = useState(false)
   const { episodeId = '', podcastId = '' } = useParams<{ podcastId: string; episodeId: string }>()
   const { episodes, isLoading } = useEpisodes({ podcastId })
+
   useTransition({ isLoading })
 
   if (!episodeId) return <h2>Episode not found</h2>

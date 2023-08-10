@@ -7,6 +7,7 @@ describe('Component: Counter', () => {
   }
 
   let span: HTMLElement | null
+
   beforeEach(() => {
     render(<CounterPodcasts {...props} />)
     span = document.querySelector('span')

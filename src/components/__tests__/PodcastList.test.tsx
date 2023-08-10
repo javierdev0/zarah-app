@@ -20,6 +20,7 @@ describe('Component: PodcastList', () => {
 
   it('should render the correct number of podcasts', () => {
     const podcastItems = component.getAllByRole('listitem')
+
     expect(podcastItems).toHaveLength(PodcastListMock.length)
   })
 })

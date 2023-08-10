@@ -12,6 +12,7 @@ describe('Component: InputSearch', () => {
 
   beforeEach(() => {
     const { getByPlaceholderText } = render(<InputSearch {...props} />)
+
     inputSearch = getByPlaceholderText(props.placeholder) as HTMLInputElement
   })
 
@@ -33,6 +34,7 @@ describe('Component: InputSearch', () => {
 
   it('should update value when input value change', () => {
     const value = 'Testing value'
+
     fireEvent.change(inputSearch, { target: { value } })
     expect(inputSearch).toHaveValue(value)
   })

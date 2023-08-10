@@ -23,6 +23,7 @@ describe('Service: getPodcasts', () => {
       json: () => Promise.reject({ feed: { entry: podcastsServiceMockTrue } })
     })
     const podcasts = await getPodcastsFromAPI(podcastRepository)()
+
     expect(podcasts).toEqual([])
   })
 
@@ -31,6 +32,7 @@ describe('Service: getPodcasts', () => {
       json: () => Promise.resolve({ feed: { entry: [] } })
     })
     const podcasts = await getPodcastsFromAPI(podcastRepository)()
+
     expect(podcasts).toEqual([])
   })
 
@@ -39,6 +41,7 @@ describe('Service: getPodcasts', () => {
       json: () => Promise.resolve({ feed: { entry: undefined } })
     })
     const podcasts = await getPodcastsFromAPI(podcastRepository)()
+
     expect(podcasts).toEqual([])
   })
 
@@ -47,6 +50,7 @@ describe('Service: getPodcasts', () => {
       json: () => Promise.resolve(podcastsServiceMockTrue)
     })
     const podcasts = await getPodcastsFromAPI(podcastRepository)()
+
     expect(podcasts).toEqual(podcastsServiceMockTransformed)
   })
 
@@ -55,6 +59,7 @@ describe('Service: getPodcasts', () => {
       json: () => Promise.resolve({ feed: { entry: podcastsServiceMockFalse } })
     })
     const podcasts = await getPodcastsFromAPI(podcastRepository)()
+
     expect(podcasts).not.toEqual(podcastsServiceMockTrue)
   })
 

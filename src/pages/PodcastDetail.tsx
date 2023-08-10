@@ -1,12 +1,16 @@
-import { useParams } from 'react-router-dom'
-import CounterEpisodes from '../components/CounterEpisodes'
-import useEpisodes from '../hooks/useEpisodes'
 import TableEpisodes from '../components/TableEpisodes'
+
+import CounterEpisodes from '../components/CounterEpisodes'
+
 import useTransition from '../hooks/useTransition'
+import { useParams } from 'react-router-dom'
+
+import useEpisodes from '../hooks/useEpisodes'
 
 export default function PodcastDetail() {
   const { podcastId = '' } = useParams<{ podcastId: string }>()
   const { episodes, resultCount, isLoading } = useEpisodes({ podcastId })
+
   useTransition({ isLoading })
 
   if (!podcastId) return <h2>Episodes not found</h2>

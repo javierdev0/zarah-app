@@ -16,9 +16,11 @@ export function createEpisodeRepository(): EpisodeRepository {
       const response = await fetch(url)
       const json = await response.json()
       const data = JSON.parse(json.contents)
+
       return data
     } catch (error) {
       console.error('Error getting episodes:', error)
+
       return { results: [], resultCount: 0 }
     }
   }

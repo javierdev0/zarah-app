@@ -6,6 +6,7 @@ import Sidebar from './Sidebar'
 export default function DetailLayout() {
   const { podcasts } = usePodcasts()
   const { podcastId } = useParams<{ podcastId: string }>()
+
   if (!podcastId) return <h2>Podcast not found</h2>
 
   const podcast = findPodcast({ podcasts, podcastId })

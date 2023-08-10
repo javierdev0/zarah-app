@@ -14,12 +14,15 @@ const usePodcasts = () => {
 
   const getPodcasts = async () => {
     const isExpired = isTimeExpired({ time: expiration })
+
     if (isExpired) {
       setLoading(true)
       const response = await getPodcastsFromAPI(podcastRepository)()
+
       setPodcasts(response)
       setLocalStorage(response)
       setLoading(false)
+
       return
     }
 

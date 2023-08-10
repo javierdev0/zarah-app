@@ -14,8 +14,10 @@ function useLocalStorage<T>(key: string, initialValue: T) {
     if (storedValue) {
       const parsedValue = JSON.parse(storedValue) as LocalStorageValue<T>
       const isExpired = isTimeExpired({ time: parsedValue.expiration })
+
       if (isExpired) {
         localStorage.removeItem(key)
+
         return { value: initialValue, expiration: 0 }
       } else {
         return parsedValue
@@ -31,6 +33,7 @@ function useLocalStorage<T>(key: string, initialValue: T) {
 
   const setValue = (newValue: T) => {
     const expiration = Date.now() + TIME_EXPIRATION_PODCASTS_MS
+
     setState({ value: newValue, expiration })
   }
 

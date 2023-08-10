@@ -25,12 +25,15 @@ const useEpisodes = ({ podcastId }: Params) => {
 
   const getEpisodes = async () => {
     const isExpired = isTimeExpired({ time: expiration })
+
     if (isExpired) {
       setLoading(true)
       const response = await getEpisodesFromAPI(episodeRepository)({ podcastId })
+
       setEpisodes(response)
       setLocalStorage(response)
       setLoading(false)
+
       return
     }
 

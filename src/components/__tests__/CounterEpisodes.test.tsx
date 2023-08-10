@@ -17,6 +17,7 @@ describe('Component: CounterEpisodes', () => {
 
   it('should render the quantity of episodes', () => {
     const quantity = component.getByText(`Episodes: ${props.quantityEpisodes}`)
+
     expect(quantity).toBeInTheDocument()
   })
 })

@@ -6,11 +6,13 @@ describe('Function: timeExpired', () => {
 
   it('should return true if time is expired', () => {
     const isExpired = isTimeExpired({ time: timeExpired })
+
     expect(isExpired).toBe(true)
   })
 
   it('should return false if time is not expired', () => {
     const isExpired = isTimeExpired({ time: timeActive })
+
     expect(isExpired).toBe(false)
   })
 })

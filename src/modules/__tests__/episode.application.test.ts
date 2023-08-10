@@ -23,6 +23,7 @@ describe('Service: getEpisodes', () => {
       json: () => Promise.reject({ feed: { entry: EpisodeServiceMock } })
     })
     const episodes = await getEpisodesFromAPI(episodeRepository)({ podcastId })
+
     expect(episodes).toEqual({ results: [], resultCount: 0 })
   })
 
@@ -31,6 +32,7 @@ describe('Service: getEpisodes', () => {
       json: () => Promise.resolve({ feed: { entry: [] } })
     })
     const episodes = await getEpisodesFromAPI(episodeRepository)({ podcastId })
+
     expect(episodes).toEqual({ results: [], resultCount: 0 })
   })
 
@@ -39,6 +41,7 @@ describe('Service: getEpisodes', () => {
       json: () => Promise.resolve({ feed: { entry: undefined } })
     })
     const episodes = await getEpisodesFromAPI(episodeRepository)({ podcastId })
+
     expect(episodes).toEqual({ results: [], resultCount: 0 })
   })
 
@@ -57,6 +60,7 @@ describe('Service: getEpisodes', () => {
     })
 
     const episodes = await getEpisodesFromAPI(episodeRepository)({ podcastId })
+
     expect(episodes).not.toEqual(ResponseServiceTransformed)
   })
 
