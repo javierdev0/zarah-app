@@ -1,4 +1,5 @@
-import { Episode, EspisodeTransformed } from '../../types/episode.type'
+import { Episode } from '../../modules/episodes/domain/Episode.domain'
+import { EspisodeTransformed } from '../../types/episode.type'
 
 export const MockEpisodeFormTransform: Episode[] = [
   {

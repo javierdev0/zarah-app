@@ -1,4 +1,4 @@
-import { Episode } from '../../types/episode.type'
+import { Episode } from '../../modules/episodes/domain/Episode.domain'
 import { MockEpisodeFormTransform, MockEpisodeTransformed } from '../__mock__/episode.transformer.mock'
 import * as episodeTransformer from '../episode.transformer'
 
