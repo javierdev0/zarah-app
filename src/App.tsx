@@ -22,27 +22,27 @@ function App() {
               </Suspense>
             }
           />
-        </Route>
 
-        <Route path={ROUTES.PODCAST} element={<DetailLayout />}>
-          <Route
-            path={`/${ROUTES.PODCAST_DETAIL}`}
-            element={
-              <Suspense fallback={<LoaderSuspense />}>
-                <PodcastDetail />
-              </Suspense>
-            }
-          />
-          <Route
-            path={`/${ROUTES.EPISODE_DETAIL}`}
-            element={
-              <Suspense fallback={<LoaderSuspense />}>
-                <EpisodeDetail />
-              </Suspense>
-            }
-          />
+          <Route path={ROUTES.PODCAST} element={<DetailLayout />}>
+            <Route
+              path={`/${ROUTES.PODCAST_DETAIL}`}
+              element={
+                <Suspense fallback={<LoaderSuspense />}>
+                  <PodcastDetail />
+                </Suspense>
+              }
+            />
+            <Route
+              path={`/${ROUTES.EPISODE_DETAIL}`}
+              element={
+                <Suspense fallback={<LoaderSuspense />}>
+                  <EpisodeDetail />
+                </Suspense>
+              }
+            />
+          </Route>
+          <Route path='*' element={<h1>404</h1>} />
         </Route>
-        <Route path='*' element={<h1>404</h1>} />
       </Routes>
     </BrowserRouter>
   )

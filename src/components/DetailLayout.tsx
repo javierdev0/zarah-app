@@ -1,5 +1,4 @@
 import { Outlet, useParams } from 'react-router-dom'
-import Header from './Header'
 import usePodcasts from '../hooks/usePodcasts'
 import { findPodcast } from '../utils/findPodcast.utils'
 import Sidebar from './Sidebar'
@@ -13,7 +12,6 @@ export default function DetailLayout() {
 
   return (
     <>
-      <Header />
       {podcast ? (
         <section className='flex gap-x-20 mt-10 px-4 w-full'>
           <div className='w-1/4'>
