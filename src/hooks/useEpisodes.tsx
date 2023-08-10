@@ -2,13 +2,16 @@ import { useEffect, useState } from 'react'
 import useLocalStorage from './useLocalStorage'
 import { isTimeExpired } from '../utils/timeExpired.utils'
 import { EpisodeResponseTransformed } from '../types/episode.type'
-import { getEpisodesFromAPI } from '../services/episode.service'
+import { getEpisodesFromAPI } from '../modules/episodes/application/get.application'
+import { createEpisodeRepository } from '../modules/episodes/infrastructure/ApiEpisodeRepository.infrastucture'
 
 type Params = {
   podcastId: string
 }
 
 const useEpisodes = ({ podcastId }: Params) => {
+  const episodeRepository = createEpisodeRepository()
+
   const initialValue: EpisodeResponseTransformed = {
     resultCount: 0,
     results: []
@@ -24,7 +27,7 @@ const useEpisodes = ({ podcastId }: Params) => {
     const isExpired = isTimeExpired({ time: expiration })
     if (isExpired) {
       setLoading(true)
-      const response = await getEpisodesFromAPI({ podcastId })
+      const response = await getEpisodesFromAPI(episodeRepository)({ podcastId })
       setEpisodes(response)
       setLocalStorage(response)
       setLoading(false)
