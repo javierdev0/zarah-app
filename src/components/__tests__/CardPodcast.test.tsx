@@ -24,7 +24,7 @@ describe('Component: CardPodcast', () => {
   })
 
   it('should render the podcast alt', () => {
-    const alt = component.getByAltText(`Cover of the podcast "${CardPodcastMockTrue.title}".`)
+    const alt = component.getByAltText(`Cover of the podcast ${CardPodcastMockTrue.title}.`)
     expect(alt).toBeTruthy()
   })
 

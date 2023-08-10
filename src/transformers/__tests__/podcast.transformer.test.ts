@@ -1,4 +1,4 @@
-import { Podcast } from '../../types/podcast.type'
+import { Podcast } from '../../modules/podcasts/domain/Podcast.domain'
 import { MockPodcastForTransform, MockPodcastTransformed } from '../__mock__/podcast.transformer.mock'
 import * as podcastTransformer from '../podcast.transformer'
 

@@ -1,13 +1,20 @@
 import * as transformPodcast from '../../transformers/podcast.transformer'
-import { podcastsServiceMockFalse, podcastsServiceMockTrue } from '../__mocks__/podcast.service.mock'
-import { getPodcastsFromAPI } from '../podcast.service'
+import {
+  podcastsServiceMockFalse,
+  podcastsServiceMockTransformed,
+  podcastsServiceMockTrue
+} from '../__mocks__/podcast.service.mock'
+import { getPodcastsFromAPI } from '../podcasts/application/get.application'
+import { createPodcastRepository } from '../podcasts/infrastructure/ApiPodcastRepository.infrastructure'
 
 describe('Service: getPodcasts', () => {
+  const podcastRepository = createPodcastRepository()
+
   it('should call function with correct api', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: () => Promise.resolve({ feed: { entry: podcastsServiceMockTrue } })
     })
-    await getPodcastsFromAPI()
+    await getPodcastsFromAPI(podcastRepository)()
     expect(global.fetch).toHaveBeenCalledWith('https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json')
   })
 
@@ -15,7 +22,7 @@ describe('Service: getPodcasts', () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: () => Promise.reject({ feed: { entry: podcastsServiceMockTrue } })
     })
-    const podcasts = await getPodcastsFromAPI()
+    const podcasts = await getPodcastsFromAPI(podcastRepository)()
     expect(podcasts).toEqual([])
   })
 
@@ -23,7 +30,7 @@ describe('Service: getPodcasts', () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: () => Promise.resolve({ feed: { entry: [] } })
     })
-    const podcasts = await getPodcastsFromAPI()
+    const podcasts = await getPodcastsFromAPI(podcastRepository)()
     expect(podcasts).toEqual([])
   })
 
@@ -31,23 +38,23 @@ describe('Service: getPodcasts', () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: () => Promise.resolve({ feed: { entry: undefined } })
     })
-    const podcasts = await getPodcastsFromAPI()
+    const podcasts = await getPodcastsFromAPI(podcastRepository)()
     expect(podcasts).toEqual([])
   })
 
   it('should get podcasts from api (mock true)', async () => {
     global.fetch = jest.fn().mockResolvedValue({
-      json: () => Promise.resolve({ feed: { entry: podcastsServiceMockTrue } })
+      json: () => Promise.resolve(podcastsServiceMockTrue)
     })
-    const podcasts = await getPodcastsFromAPI()
-    expect(podcasts).toEqual(podcastsServiceMockTrue)
+    const podcasts = await getPodcastsFromAPI(podcastRepository)()
+    expect(podcasts).toEqual(podcastsServiceMockTransformed)
   })
 
   it('should not get podcasts from api (mock false)', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: () => Promise.resolve({ feed: { entry: podcastsServiceMockFalse } })
     })
-    const podcasts = await getPodcastsFromAPI()
+    const podcasts = await getPodcastsFromAPI(podcastRepository)()
     expect(podcasts).not.toEqual(podcastsServiceMockTrue)
   })
 
@@ -57,7 +64,7 @@ describe('Service: getPodcasts', () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: () => Promise.resolve({ feed: { entry: podcastsServiceMockTrue } })
     })
-    await getPodcastsFromAPI()
+    await getPodcastsFromAPI(podcastRepository)()
     expect(transformPodcastMock).toHaveBeenCalledWith({ podcasts: podcastsServiceMockTrue })
   })
 })

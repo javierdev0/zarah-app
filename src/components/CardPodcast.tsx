@@ -15,7 +15,7 @@ export default function CardPodcast({ img, title, author, podcastId }: Props) {
         <figure>
           <img
             src={img}
-            alt={title ? `Cover of the podcast "${title}".` : 'No title'}
+            alt={title ? `Cover of the podcast ${title}.` : 'No title'}
             className='relative z-10 rounded-full object-cover w-36 h-36'
           />
         </figure>

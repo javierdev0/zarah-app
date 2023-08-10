@@ -1,12 +1,12 @@
-import { Podcast } from '../types/podcast.type'
+import { PodcastResponseTransformed } from '../types/podcast.type'
 
 type Params = {
-  podcasts: Podcast[] | undefined
+  podcasts: PodcastResponseTransformed[] | undefined
   podcastId: string
 }
 
-export const findPodcast = ({ podcasts, podcastId }: Params): Podcast | undefined => {
+export const findPodcast = ({ podcasts, podcastId }: Params): PodcastResponseTransformed | undefined => {
   if (!podcasts || !podcastId) return undefined
 
-  return podcasts.find(podcast => podcast.id.attributes['im:id'] === podcastId)
+  return podcasts.find(podcast => podcast.id === podcastId)
 }

@@ -18,10 +18,10 @@ export default function DetailLayout() {
         <section className='flex gap-x-20 mt-10 px-4 w-full'>
           <div className='w-1/4'>
             <Sidebar
-              artist={podcast?.['im:artist'].label}
-              description={podcast.summary.label}
-              img={podcast?.['im:image'][2].label}
-              title={podcast?.['im:name'].label}
+              artist={podcast?.artist}
+              description={podcast.summary}
+              img={podcast?.image}
+              title={podcast?.title}
               podcastId={podcastId}
             />
           </div>
