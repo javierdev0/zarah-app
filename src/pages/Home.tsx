@@ -9,6 +9,7 @@ import useTransition from '../hooks/useTransition'
 export default function Home() {
   const [keyword, setKeyword] = useState<string>('')
   const { podcasts, isLoading } = usePodcasts()
+
   useTransition({ isLoading })
 
   const podcastsFiltered = filterPodcastsByKeyword({ podcasts, keyword })
@@ -18,12 +19,13 @@ export default function Home() {
       <main className='w-[1000px]'>
         <div className='flex items-center justify-end gap-3 px-4 mt-5'>
           <CounterPodcasts quantity={podcastsFiltered.length} />
-
-          <InputSearch
-            placeholder='Filter podcasts..'
-            value={keyword}
-            onChange={event => setKeyword(event.target.value)}
-          />
+          <form className='w-64'>
+            <InputSearch
+              placeholder='Filter podcasts..'
+              value={keyword}
+              onChange={event => setKeyword(event.target.value)}
+            />
+          </form>
         </div>
       </main>
       <PodcastsList podcastsFiltered={podcastsFiltered} />
