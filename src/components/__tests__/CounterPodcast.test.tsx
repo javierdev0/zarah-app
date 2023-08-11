@@ -18,6 +18,6 @@ describe('Component: Counter', () => {
   })
 
   it('should render the quantity', () => {
-    expect(span?.textContent).toBe(props.quantity.toString())
+    expect(span?.textContent).toBe(`${props.quantity.toString()} Podcasts`)
   })
 })
